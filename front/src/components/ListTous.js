@@ -13,8 +13,11 @@ export default class ListTous extends Component {
     componentDidMount() {
         axios.get('http://localhost:8080/affichertous')
             .then(response => {
-                console.log('i am a response', response)
+                console.log(response.data._id);
                 this.setState({ profil: response.data });
+                localStorage.setItem('atelier',response.data._id)
+                
+                
             })
             .catch(function (error) {
                 console.log(error);

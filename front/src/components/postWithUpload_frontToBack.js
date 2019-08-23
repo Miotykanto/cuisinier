@@ -1,6 +1,6 @@
 
 import React from 'react';
-import './postWithUpload_frontToBack.css'
+
 class PostFrontToBack extends React.Component {
   constructor(props) {
     super(props);
@@ -29,6 +29,16 @@ class PostFrontToBack extends React.Component {
         [event.target.name]: event.target.value
     })
 }
+
+// componentDidMount(){
+//   //this.state.profil+=localStorage.getItem('ii')
+//   this.setState( {profil:localStorage.getItem('id')} )
+//   // this.setState( {email:sessionStorage.getItem('i')} )
+//   // this.setState( {password:sessionStorage.getItem('iii')} )
+//   console.log(this.state.profil);
+  
+// }
+
 
 
   handleUploadImage(ev) {
@@ -70,56 +80,68 @@ class PostFrontToBack extends React.Component {
 
   render() {
     return (
-      <form onSubmit={this.handleUploadImage } className="formulaireAtelier"
+      <form onSubmit={this.handleUploadImage }
        
-      >
-        <h2 id="legende">Completez les formulaire ci-dessous</h2>
-        <label>titre:</label>
+    ><div className="form-group">
+        <label>Type chambre:</label>
         <input type="text"
+        className="form-control"
           value={this.state.value}
           onChange={this.onChange}
-          name="titre" /><br></br>
+          name="titre" /><br></br></div>
+          <div className="form-group">
           <label>Description:</label>
-        <input type="text"
+        <input type="textarea"
+        className="form-control"
           value={this.state.value}
           onChange={this.onChange}
-          name="description" /><br/>
+          name="description" /><br></br></div>
+          <div className="form-group">
         <label>date:</label>
-        <input type="text"
+        <input type="date"
+        className="form-control"
           value={this.state.value}
           onChange={this.onChange}
-          name="date" /><br/> 
+          name="date" /><br></br> </div>
+          <div className="form-group">
           <label>Debut:</label>
-        <input type="text"
+        <input type="time"
+        className="form-control"
           value={this.state.value}
           onChange={this.onChange}
-          name="debut" /><br/>
+          name="debut" /><br></br> </div>
+          <div className="form-group">
           <label>Durée:</label>
-        <input type="text"
+        <input type="time"
+        className="form-control"
           value={this.state.value}
           onChange={this.onChange}
-          name="dure" /><br/>   
+          name="dure" /><br></br>  </div>
+          <div className="form-group"></div> 
           <label>Nombre de place disponible:</label>
         <input type="text"
+        className="form-control"
           value={this.state.value}
           onChange={this.onChange}
-          name="place_dispo" /><br/> 
+          name="place_dispo" /><br></br> 
+          <div className="form-group">
           <label>Nombre de place reservée:</label>
         <input type="text"
-          value={this.state.value }
-          onChange={this.onChange}
-          name="place_reserve" /><br/>   
-          <label>Prix:</label>
-        <input type="text"
+        className="form-control"
           value={this.state.value}
           onChange={this.onChange}
-          name="prix" />   <br/>  
+          name="place_reserve" /><br></br> </div> 
+          <div className="form-group"> 
+          <label>Prix:</label>
+        <input type="text"
+        className="form-control"
+          value={this.state.value}
+          onChange={this.onChange}
+          name="prix" /><br></br>   </div> 
       
-          <input ref={(ref) => { this.uploadInput = ref; }} type="file" name="image" id="buttonUpload"
-           /> <br/>
+          <input ref={(ref) => { this.uploadInput = ref; }} type="file" name="image"/>
        
-          <input type="submit" class="fadeIn fourth" value="Ajouter" id="bouttonAjouter" value="Envoyer"/><br/>
-          
+          <input type="submit" class="fadeIn fourth" value="Ajouter"/>
       </form>
     );
   }

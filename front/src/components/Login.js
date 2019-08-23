@@ -2,11 +2,9 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { loginUser } from '../actions/authentication';
+import "./Login.css"
 import classnames from 'classnames';
 import logo from "./logobe.png"
-
-
-
 class Login extends Component {
 
     constructor() {
@@ -55,27 +53,23 @@ class Login extends Component {
     render() {
         const {errors} = this.state;
         return(
-
-           <div class="container h-100 log">
-<div class="d-flex justify-content-center h-100">
-    <div class="user_card">
+        
+ <div class="container h-100 log" >
+<div class="d-flex justify-content-center h-100" >
+    <div class="user_card" id="loginfont">
         <div class="d-flex justify-content-center">
-
-
-    
-
             <div class="brand_logo_container">
                 <img src={logo} class="brand_logo" alt="Logo"/>
             </div>
         </div>
-        <div class="d-flex justify-content-center form_container" >
-            <form onSubmit={ this.handleSubmit } id="fondLogin">
-                <div class="input-group mb-3">
+        <div class="d-flex justify-content-center form_container">
+            <form onSubmit={ this.handleSubmit }>
+                <div class="input-group mb-3" id="fondLogin">
                     <div class="input-group-append">
-                    
                         {/* <span class="input-group-text"><i class="fas fa-user"></i></span> */}
-                      
+                        {/* <span class="input-group-text"><i class="fas fa-user"></i></span> */}
                         <i class="fa fa-spinner fa-spin fa-3x fa-fw"></i>
+
                     </div>
                     <input  class="form-control input_user" 
                       type="email"
@@ -87,7 +81,7 @@ class Login extends Component {
                                   onChange={ this.handleInputChange }
                                   value={ this.state.email }/>
                 </div>
-                <div class="input-group mb-2">
+                <div class="input-group mb-2" id="fondLogin">
                     <div class="input-group-append">
                         {/* <span class="input-group-text"><i class="fas fa-key"></i></span> */}
                         <i class="fa fa-cog fa-spin fa-3x fa-fw" aria-hidden="true"></i>
@@ -105,21 +99,23 @@ class Login extends Component {
                 <div class="form-group">
                     <div class="custom-control custom-checkbox">
                         <input type="checkbox" class="custom-control-input" id="customControlInline"/>
-                        <label class="custom-control-label" for="customControlInline">Joignez nous vite</label>
+                        <label class="custom-control-label" for="customControlInline">Remember me</label>
                     </div>
                 </div>
                 <div class="d-flex justify-content-center mt-3 login_container">
-            <button type="submit" name="button" class="btn login_btn">S'identifier</button>
+            <button type="submit" name="button" class="btn login_btn">Login</button>
             
         </div>
             </form>
         </div>
-       
-	
+        
       
     </div>
 </div>
-</div>  
+</div> 
+
+
+
         )
     }
 }
